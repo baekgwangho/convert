@@ -15,18 +15,30 @@
       }
   </style>
   <script>
-    function convertKebabCase() {
-      var str = window.document.getElementById('camelTextarea').value;
-      console.log(str);
-      var result = str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
+    function kebabize() {
+      var str = window.document.getElementById('inputTextarea').value;
+      function kebabizeFn(str) {
+        return str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
+      }
+      var result = kebabizeFn(str);
       window.document.getElementById('result').innerHTML = `<div>${result}</div>`;
     }
+    function camelize() {
+      var str = window.document.getElementById('inputTextarea').value;
+      function camelizeFn(s) {
+        return s.replace(/-./g, x=>x[1].toUpperCase())
+      }
+      var result = camelizeFn(str);
+      window.document.getElementById('result').innerHTML = `<div>${result}</div>`;
+    }
+
 
   </script>
 </head>
 <body>
-<textarea id="camelTextarea" class="custom_textarea"></textarea>
-<button onclick="convertKebabCase()">Convert CamelCase To KebabCase</button>
+<textarea id="inputTextarea" class="custom_textarea"></textarea>
+<button onclick="kebabize()">Convert CamelCase To KebabCase</button>
+<button onclick="camelize()">Convert KebabCase To CamelCase</button>
 <div id="result"></div>
 
 </body>
