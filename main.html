@@ -16,7 +16,7 @@
   </style>
   <script>
     function convertKebabCase() {
-      var str = window.document.getElementById('camelTextarea')
+      var str = window.document.getElementById('camelTextarea').value;
       console.log(str);
       return str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
     }
