@@ -18,7 +18,8 @@
     function convertKebabCase() {
       var str = window.document.getElementById('camelTextarea').value;
       console.log(str);
-      return str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
+      var result = str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
+      window.document.getElementById('result').innerHTML = `<div>${result}</div>`;
     }
 
   </script>
@@ -26,5 +27,7 @@
 <body>
 <textarea id="camelTextarea" class="custom_textarea"></textarea>
 <button onclick="convertKebabCase()">Convert CamelCase To KebabCase</button>
+<div id="result"></div>
+
 </body>
 </html>
