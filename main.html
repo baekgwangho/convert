@@ -29,7 +29,7 @@
         return s.replace(/-./g, x=>x[1].toUpperCase())
       }
       var result = camelizeFn(str);
-      window.document.getElementById('result').innerHTML = `<div>${result}</div>`;
+      window.document.getElementById('result').innerHTML = result;
     }
 
 
