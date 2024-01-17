@@ -21,7 +21,7 @@
         return str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
       }
       var result = kebabizeFn(str);
-      window.document.getElementById('result').innerHTML = `<div>${result}</div>`;
+      window.document.getElementById('result').innerHTML = result;
     }
     function camelize() {
       var str = window.document.getElementById('inputTextarea').value;
