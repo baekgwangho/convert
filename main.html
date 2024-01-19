@@ -16,8 +16,8 @@
   </style>
   <script>
     function convertKc(str) {
-      const regex = /<\/?kc/gi;
-      let result = str.replace(regex, match => {
+      var regex = /<\/?kc/gi;
+      var result = str.replace(regex, match => {
         return match.startsWith('</') ? '</Kc' : '<Kc';
       });
       return result;
@@ -28,8 +28,8 @@
     }
 
     function kebabize() {
-      const str = window.document.getElementById('inputTextarea').value;
-      const result = kebabizeFn(str);
+      var str = window.document.getElementById('inputTextarea').value;
+      var result = kebabizeFn(str);
       window.document.getElementById('result').innerHTML = result;
     }
 
@@ -38,8 +38,8 @@
     }
 
     function camelize() {
-      const str = window.document.getElementById('inputTextarea').value;
-      const result = convertKc(camelizeFn(str));
+      var str = window.document.getElementById('inputTextarea').value;
+      var result = convertKc(camelizeFn(str));
       window.document.getElementById('result').innerHTML = result;
     }
 
