@@ -15,20 +15,31 @@
       }
   </style>
   <script>
+    function convertKc(str) {
+      const regex = /<\/?kc/gi;
+      let result = str.replace(regex, match => {
+        return match.startsWith('</') ? '</Kc' : '<Kc';
+      });
+      return result;
+    }
+
+    function kebabizeFn(str) {
+      return str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
+    }
+
     function kebabize() {
-      var str = window.document.getElementById('inputTextarea').value;
-      function kebabizeFn(str) {
-        return str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? '-' : '') + $.toLowerCase());
-      }
-      var result = kebabizeFn(str);
+      const str = window.document.getElementById('inputTextarea').value;
+      const result = kebabizeFn(str);
       window.document.getElementById('result').innerHTML = result;
     }
+
+    function camelizeFn(s) {
+      return s.replace(/-./g, x => x[1].toUpperCase());
+    }
+
     function camelize() {
-      var str = window.document.getElementById('inputTextarea').value;
-      function camelizeFn(s) {
-        return s.replace(/-./g, x=>x[1].toUpperCase())
-      }
-      var result = camelizeFn(str);
+      const str = window.document.getElementById('inputTextarea').value;
+      const result = convertKc(camelizeFn(str));
       window.document.getElementById('result').innerHTML = result;
     }
 
