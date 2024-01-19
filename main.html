@@ -17,7 +17,7 @@
   <script>
     function convertKc(str) {
       var regex = /<\/?[a-z]/gi;
-      var result = camel.replace(regex, match => {
+      var result = str.replace(regex, match => {
         return match.startsWith('</') ? '</' + match.charAt(2).toUpperCase() : '<' + match.charAt(1).toUpperCase();
       });
 
